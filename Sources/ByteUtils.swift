@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ByteUtils {
+public class ByteUtils {
 	static func hexToStr(_ data: [UInt8] = [], prefix: String = "", suffix: String = " ") -> String {
 		var retval = ""
 		

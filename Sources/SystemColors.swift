@@ -1,5 +1,5 @@
 //
-//  SystemColor.swift
+//  SystemColors.swift
 //  C32Shared
 //
 //  Created by Robin Israel on 9/18/22.
@@ -23,8 +23,8 @@ fileprivate typealias PlatformColor = NSColor
 
 // MARK: Standard Colors
 
-@available(iOS 13.0, macOS 10.15, *)
-extension Color {
+@available(iOS 13.0, tvOS 13.0, macOS 10.15, *)
+public extension Color {
 	/// A blue color that automatically adapts to the current trait environment.
 	static let systemBlue 	= Color(PlatformColor.systemBlue)
 	
@@ -32,7 +32,7 @@ extension Color {
 	static let systemBrown	= Color(PlatformColor.systemBrown)
 
 	/// A cyan color that automatically adapts to the current trait environment.
-	@available(iOS 15.0, macOS 12.0, *)
+	@available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
 	static let systemCyan 	= Color(PlatformColor.systemCyan)
 	
 	/// A green color that automatically adapts to the current trait environment.
@@ -42,7 +42,7 @@ extension Color {
 	static let systemIndigo	= Color(PlatformColor.systemIndigo)
 	
 	/// A mint color that automatically adapts to the current trait environment.
-	@available(iOS 15.0, *)
+	@available(iOS 15.0, tvOS 15.0, *)
 	static let systemMint	= Color(PlatformColor.systemMint)
 	
 	/// An orange color that automatically adapts to the current trait environment.
@@ -65,8 +65,8 @@ extension Color {
 	
 }
 
-@available(iOS 13.0, macOS 10.15, *)
-extension Color {
+@available(iOS 13.0, tvOS 13.0, macOS 10.15, *)
+public extension Color {
 	
 	/// The standard base gray color that adapts to the environment.
 	static let systemGray 	= Color(PlatformColor.systemGray)
@@ -91,8 +91,8 @@ extension Color {
 	#endif
 }
 
-@available(iOS 13.0, macOS 10.15, *)
-extension Color {
+@available(iOS 13.0, tvOS 13.0, macOS 10.15, *)
+public extension Color {
 	
 	#if canImport(UIKit) && !os(tvOS)
 
@@ -106,8 +106,8 @@ extension Color {
 
 // MARK: UI Colors - UIKit
 
-@available(iOS 13.0, *)
-extension Color {
+@available(iOS 13.0, tvOS 13.0, *)
+public extension Color {
 	
 	// MARK: Label colors
 
@@ -123,6 +123,8 @@ extension Color {
 	/// The color for text labels that contain quaternary content.
 	static let quaternaryLabel 		= Color(PlatformColor.quaternaryLabel)
 	
+	#if !os(tvOS)
+	
 	// MARK: Fill colors
 	
 	/// An overlay fill color for thin and small shapes.
@@ -137,6 +139,8 @@ extension Color {
 	/// An overlay fill color for large areas that contain complex content.
 	static let quaternarySystemFill	= Color(PlatformColor.quaternarySystemFill)
 	
+	#endif
+	
 	// MARK: Text colors
 	
 	/// The color for placeholder text in controls or text views.
@@ -145,8 +149,10 @@ extension Color {
 	// MARK: Tint color
 	
 	/// A color value that resolves at runtime based on the current tint color of the app or trait hierarchy.
-	@available(iOS 15.0, *)
+	@available(iOS 15.0, tvOS 15.0, *)
 	static let tintColor			= Color(PlatformColor.tintColor)
+	
+	#if !os(tvOS)
 	
 	// MARK: Standard content background colors
 	
@@ -170,6 +176,8 @@ extension Color {
 	/// The color for content layered on top of secondary backgrounds of your grouped interface.
 	static let tertiarySystemGroupedBackground	= Color(PlatformColor.tertiarySystemGroupedBackground)
 	
+	#endif
+	
 	// MARK: Separator colors
 	
 	/// The color for thin borders or divider lines that allows some underlying content to be visible.
@@ -183,6 +191,8 @@ extension Color {
 	/// The specified color for links.
 	static let link	= Color(PlatformColor.link)
 	
+	#if !os(tvOS)
+	
 	// MARK: Nonadaptable colors
 	
 	/// The nonadaptable system color for text on a light background.
@@ -190,6 +200,8 @@ extension Color {
 	
 	/// The nonadaptable system color for text on a dark background.
 	static let lightText	= Color(PlatformColor.lightText)
+	
+	#endif
 }
 
 #elseif canImport(AppKit)
@@ -197,7 +209,7 @@ extension Color {
 // MARK: UI Colors - AppKit
 
 @available(macOS 10.15, *)
-extension Color {
+public extension Color {
 	
 	// MARK: Label colors
 

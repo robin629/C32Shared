@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FileUtils {
+public class FileUtils {
 	static func loadFileFromBundle(_ filename: String) -> Data? {
 		let prefix = (filename as NSString).pathExtension
 		let name = (filename as NSString).deletingPathExtension
