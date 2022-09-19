@@ -8,7 +8,7 @@
 import Foundation
 
 public class ByteUtils {
-	static func hexToStr(_ data: [UInt8] = [], prefix: String = "", suffix: String = " ") -> String {
+	public static func hexToStr(_ data: [UInt8] = [], prefix: String = "", suffix: String = " ") -> String {
 		var retval = ""
 		
 		for (i, b) in data.enumerated() {
@@ -22,7 +22,7 @@ public class ByteUtils {
 		return retval
 	}
 	
-	static func hexToStr(_ data: ArraySlice<UInt8>, prefix: String = "", suffix: String = " ") -> String {
+	public static func hexToStr(_ data: ArraySlice<UInt8>, prefix: String = "", suffix: String = " ") -> String {
 		var retval = ""
 		
 		for (i, b) in data.enumerated() {
@@ -36,7 +36,7 @@ public class ByteUtils {
 		return retval
 	}
 	
-	static func hexToStr(_ data: ByteArray, prefix: String = "", suffix: String = " ") -> String {
+	public static func hexToStr(_ data: ByteArray, prefix: String = "", suffix: String = " ") -> String {
 		var retval = ""
 		
 		for (i, b) in data.enumerated() {
@@ -50,7 +50,7 @@ public class ByteUtils {
 		return retval
 	}
 	
-	static func hexToStr(_ data: SafeByteArray, prefix: String = "", suffix: String = " ") -> String {
+	public static func hexToStr(_ data: SafeByteArray, prefix: String = "", suffix: String = " ") -> String {
 		var retval = ""
 		
 		for (i, b) in data.enumerated() {

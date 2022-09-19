@@ -8,7 +8,7 @@
 import Foundation
 
 public class FileUtils {
-	static func loadFileFromBundle(_ filename: String) -> Data? {
+	public static func loadFileFromBundle(_ filename: String) -> Data? {
 		let prefix = (filename as NSString).pathExtension
 		let name = (filename as NSString).deletingPathExtension
 
@@ -21,7 +21,7 @@ public class FileUtils {
 		}
 	}
 
-	static func loadFileFromBundle(filename: String, type: String) -> Data? {
+	public static func loadFileFromBundle(filename: String, type: String) -> Data? {
 		guard let fullPath = Bundle.main.path(forResource: filename, ofType: type) else { return nil }
 
 		do {
