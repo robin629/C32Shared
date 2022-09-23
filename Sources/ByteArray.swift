@@ -24,6 +24,10 @@ public class ByteArray {
 
 		return ByteArray(Array(_data[from...(from+to)]))
 	}
+	
+	public func toData() -> Data {
+		return Data(_data)
+	}
 
 	public func read(_ length: UInt8, _ moveCursor: Bool = true) -> ByteArray? {
 		return readBytes(Int(length), moveCursor)

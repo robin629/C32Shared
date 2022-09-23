@@ -24,6 +24,10 @@ public class SafeByteArray {
 
 		return SafeByteArray(Array(_data[from...(from+to)]))
 	}
+	
+	public func toData() -> Data {
+		return Data(_data)
+	}
 
 	public func read(_ length: UInt8, _ moveCursor: Bool = true) -> SafeByteArray? {
 		return readBytes(Int(length), moveCursor)
