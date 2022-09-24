@@ -137,6 +137,10 @@ public class ByteArray {
 	public static func +=(lhs: ByteArray, rhs: [UInt8]) {
 		lhs._data.append(contentsOf: rhs)
 	}
+	
+	public static func +=(lhs: ByteArray, rhs: ByteArray) {
+		lhs._data.append(contentsOf: rhs.toData())
+	}
 
 	public subscript(index: Int) -> UInt8 {
 		get {

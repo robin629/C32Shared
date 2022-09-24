@@ -137,6 +137,10 @@ public class SafeByteArray {
 	public static func +=(lhs: SafeByteArray, rhs: [UInt8]) {
 		lhs._data.append(contentsOf: rhs)
 	}
+	
+	public static func +=(lhs: SafeByteArray, rhs: SafeByteArray) {
+		lhs._data.append(contentsOf: rhs.toData())
+	}
 
 	public subscript(index: Int) -> UInt8 {
 		get {
