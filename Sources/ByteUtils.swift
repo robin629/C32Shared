@@ -63,4 +63,18 @@ public class ByteUtils {
 		
 		return retval
 	}
+	
+	public static func hexToStr(_ data: Data, prefix: String = "", suffix: String = " ") -> String {
+		var retval = ""
+		
+		for (i, b) in data.enumerated() {
+			retval += prefix + String(format: "%02X", b)
+
+			if (i + 1 != data.endIndex) {
+				retval += suffix
+			}
+		}
+		
+		return retval
+	}
 }
