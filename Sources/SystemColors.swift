@@ -91,16 +91,16 @@ public extension Color {
 	#endif
 }
 
-@available(iOS 13.0, tvOS 13.0, macOS 10.15, *)
-public extension Color {
-	
-	#if canImport(UIKit) && !os(tvOS)
-
-	/// The standard base gray color that adapts to the environment.
-	static let clear = Color(PlatformColor.clear)
-
-	#endif
-}
+//@available(iOS 13.0, tvOS 13.0, macOS 10.15, *)
+//public extension Color {
+//	
+//	#if canImport(UIKit) && !os(tvOS)
+//
+//	/// The standard base gray color that adapts to the environment.
+//	static let clear = Color(PlatformColor.clear)
+//
+//	#endif
+//}
 
 #if canImport(UIKit)
 
