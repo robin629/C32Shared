@@ -42,7 +42,7 @@ public struct SidebarSection<Content, Header, Footer>: View where Content: View,
 }
 
 extension SidebarSection where Header == EmptyView, Footer == EmptyView {
-	init(@ViewBuilder content: @escaping () -> Content) {
+	public init(@ViewBuilder content: @escaping () -> Content) {
 		self.content = content
 		self.header  = { nil }
 		self.footer  = { nil }
@@ -50,7 +50,7 @@ extension SidebarSection where Header == EmptyView, Footer == EmptyView {
 }
 
 extension SidebarSection where Footer == EmptyView {
-	init(@ViewBuilder content: @escaping () -> Content,
+	public init(@ViewBuilder content: @escaping () -> Content,
 		 @ViewBuilder header:  @escaping () -> Header) {
 		self.content = content
 		self.header  = header
@@ -59,7 +59,7 @@ extension SidebarSection where Footer == EmptyView {
 }
 
 extension SidebarSection where Header == EmptyView {
-	init(@ViewBuilder content: @escaping () -> Content,
+	public init(@ViewBuilder content: @escaping () -> Content,
 		 @ViewBuilder footer:  @escaping () -> Footer) {
 		self.content = content
 		self.header  = { nil }
@@ -68,7 +68,7 @@ extension SidebarSection where Header == EmptyView {
 }
 
 extension SidebarSection where Content: View, Header: View, Footer: View {
-	func collapsible(_ value: Bool) -> some View {
+	public func collapsible(_ value: Bool) -> some View {
 		var newView = self
 		
 		newView.collapsible = value
