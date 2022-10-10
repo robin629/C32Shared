@@ -7,10 +7,10 @@ let package = Package(
     name: "C32Shared",
 
 	platforms: [
-		.iOS(.v13),
-		.tvOS(.v11),
-		.macOS(.v10_15),
-		.watchOS(.v6)
+		.iOS(.v14),
+		.tvOS(.v14),
+		.macOS(.v11),
+		.watchOS(.v7)
 	],
 
     products: [
