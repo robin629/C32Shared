@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct Sidebar<Content>: View where Content: View {
+public struct Sidebar<Content>: View where Content: View {
 	let content: () -> Content
 
-	init(@ViewBuilder content: @escaping () -> Content) {
+	public init(@ViewBuilder content: @escaping () -> Content) {
 		self.content = content
 	}
 
-    var body: some View {
+	public var body: some View {
 		List {
 			content()
 		}

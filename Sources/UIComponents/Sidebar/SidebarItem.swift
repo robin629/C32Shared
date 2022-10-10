@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct SidebarItem<V, Label, Destination>: View where V: Hashable, Label: View, Destination: View {
+public struct SidebarItem<V, Label, Destination>: View where V: Hashable, Label: View, Destination: View {
 	let destination: () -> Destination
 	let label: 	 	 () -> Label
 	var tag: 		 V? = nil
 	var selection: 	 Binding<V?>? = nil
 	
-	init(@ViewBuilder destination: @escaping () -> Destination,
+	public init(@ViewBuilder destination: @escaping () -> Destination,
 		 @ViewBuilder label: 	   @escaping () -> Label) {
 		self.destination = destination
 		self.label 	 	 = label
 	}
 	
-	init(tag: V,
+	public init(tag: V,
 		 selection: Binding<V?>,
 		 @ViewBuilder destination: @escaping () -> Destination,
 		 @ViewBuilder label: 	   @escaping () -> Label) {
@@ -30,7 +30,7 @@ struct SidebarItem<V, Label, Destination>: View where V: Hashable, Label: View, 
 		self.selection = selection
 	}
 
-    var body: some View {
+	public var body: some View {
 		if let tag = self.tag, let selection = self.selection {
 			NavigationLink(tag: tag, selection: selection, destination: destination, label: label)
 		} else {
