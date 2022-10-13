@@ -25,6 +25,10 @@ public class SafeByteArray {
 		return SafeByteArray(Array(_data[from...(from+to)]))
 	}
 	
+	public func toBytes() -> [UInt8] {
+		return _data
+	}
+	
 	public func toData() -> Data {
 		return Data(_data)
 	}
