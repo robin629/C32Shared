@@ -142,6 +142,10 @@ public class ByteArray {
 		lhs._data.append(contentsOf: rhs)
 	}
 	
+	public static func +=(lhs: ByteArray, rhs: Data) {
+		lhs._data.append(contentsOf: rhs)
+	}
+	
 	public static func +=(lhs: ByteArray, rhs: ByteArray) {
 		lhs._data.append(contentsOf: rhs.toData())
 	}

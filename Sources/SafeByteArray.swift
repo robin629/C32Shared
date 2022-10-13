@@ -142,6 +142,10 @@ public class SafeByteArray {
 		lhs._data.append(contentsOf: rhs)
 	}
 	
+	public static func +=(lhs: SafeByteArray, rhs: Data) {
+		lhs._data.append(contentsOf: rhs)
+	}
+	
 	public static func +=(lhs: SafeByteArray, rhs: SafeByteArray) {
 		lhs._data.append(contentsOf: rhs.toData())
 	}
