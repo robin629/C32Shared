@@ -19,6 +19,14 @@ public class ByteArray {
 		_data = data
 	}
 	
+	public init(_ data: Data) {
+		_data = [UInt8](data)
+	}
+	
+	public init(_ data: ByteArray) {
+		_data = data._data
+	}
+	
 	public func split(from: Int, to: Int) -> ByteArray {
 		guard from < _data.count, from + to < _data.count else { return ByteArray([UInt8]()) }
 
@@ -31,6 +39,10 @@ public class ByteArray {
 	
 	public func toData() -> Data {
 		return Data(_data)
+	}
+	
+	public func toString(prefix: String = "", suffix: String = "") -> String {
+		return ByteUtils.hexToStr(_data, prefix: prefix, suffix: suffix)
 	}
 
 	public func read(_ length: UInt8, _ moveCursor: Bool = true) -> ByteArray? {
