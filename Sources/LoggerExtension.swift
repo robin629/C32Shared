@@ -10,7 +10,7 @@ import Foundation
 import Foundation
 import OSLog
 
-extension Logger {
+public extension Logger {
 	func criticalf(_ fmt: String, _ args: CVarArg...) {
 		self.critical("\(String(format: fmt, arguments: args))")
 	}
