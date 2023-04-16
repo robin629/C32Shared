@@ -1,8 +1,12 @@
-.DS_Store
+/**/.DS_Store
+/**/xcuserdata
+/**/xcshareddata
+/**/*.xcscmblueprint
+/**/*.xccheckout
+
 /.build
 /Packages
 /*.xcodeproj
-xcuserdata/
 DerivedData/
 .swiftpm/config/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
