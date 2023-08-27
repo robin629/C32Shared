@@ -9,11 +9,11 @@ import Foundation
 
 public class ByteArray {
 	private var _data = [UInt8]()
-	private var _pos = 0
+	private var _pos  = 0
 
-	public var count: Int { get { _data.count } }
+	public var count:	  Int { get { _data.count } }
 	public var remaining: Int { get { _data.count - _pos } }
-	public var endIndex: Int { get { _data.endIndex } }
+	public var endIndex:  Int { get { _data.endIndex } }
 	
 	public init(_ data: [UInt8] = []) {
 		_data = data
@@ -25,6 +25,22 @@ public class ByteArray {
 	
 	public init(_ data: ByteArray) {
 		_data = data._data
+	}
+	
+	public init(_ ascii: String) {
+		let filtered = Array(ascii.filter({ $0.isHexDigit }))
+		
+		/* The ascii-hex string must have an even number of characters */
+		if (0 != (filtered.count & 1)) {
+			return
+		}
+
+		/* Convert ascii-hex string to uint8 array */
+		for i in stride(from: 0, to: filtered.count, by: 2) {
+			if let hi = filtered[i].hexDigitValue, let lo = filtered[i + 1].hexDigitValue {
+				_data.append(UInt8((hi & 0xF) << 4 | (lo & 0xF)))
+			}
+		}
 	}
 	
 	public func split(from: Int, to: Int) -> ByteArray {
@@ -60,7 +76,7 @@ public class ByteArray {
 	public func read(_ length: Int, _ moveCursor: Bool = true) -> ByteArray? {
 		return readBytes(Int(length), moveCursor)
 	}
-	
+
 	public func readU8(_ moveCursor: Bool = true) -> UInt8 {
 		guard _data.count >= _pos + 1 else { return 0 }
 
