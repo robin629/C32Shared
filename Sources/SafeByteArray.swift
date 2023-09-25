@@ -41,8 +41,40 @@ public class SafeByteArray {
 		return Data(_data)
 	}
 	
-	public func toString(prefix: String = "", suffix: String = "") -> String {
+	public func toDebugString(prefix: String = "", suffix: String = "") -> String {
 		return ByteUtils.hexToStr(_data, prefix: prefix, suffix: suffix)
+	}
+	
+	func toAscii() -> String {
+		return String(bytes: _data, encoding: .ascii) ?? ""
+	}
+	
+	func toUtf8() -> String {
+		return String(bytes: _data, encoding: .utf8) ?? ""
+	}
+	
+	func toUtf16() -> String {
+		return String(bytes: _data, encoding: .utf16) ?? ""
+	}
+	
+	func toUtf16BE() -> String {
+		return String(bytes: _data, encoding: .utf16BigEndian) ?? ""
+	}
+	
+	func toUtf16LE() -> String {
+		return String(bytes: _data, encoding: .utf16LittleEndian) ?? ""
+	}
+	
+	func toUtf32() -> String {
+		return String(bytes: _data, encoding: .utf32) ?? ""
+	}
+	
+	func toUtf32BE() -> String {
+		return String(bytes: _data, encoding: .utf32BigEndian) ?? ""
+	}
+	
+	func toUtf32LE() -> String {
+		return String(bytes: _data, encoding: .utf32LittleEndian) ?? ""
 	}
 
 	public func read(_ length: UInt8, _ moveCursor: Bool = true) -> SafeByteArray? {
