@@ -205,7 +205,13 @@ public class SafeByteArray {
 	}
 	
 	private func readBytes(_ length: Int, _ moveCursor: Bool = true) -> SafeByteArray? {
-		guard length > 0, _pos + (length - 1) < _data.count else { return nil }
+		guard length > 0 else {
+			return SafeByteArray()
+		}
+
+		guard _pos + (length - 1) < _data.count else {
+			return nil
+		}
 
 		let retval = SafeByteArray(Array(_data[_pos...(_pos + length - 1)]))
 
